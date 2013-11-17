@@ -12,8 +12,8 @@ buildpack=$(dirname $(dirname $0))
 plat=$(uname|tr A-Z a-z)-$arch
 
 # Python
-venv=$cache/venv
-mkdir -p $cache/pip
+venv=$build/venv
+mkdir -p $build/pip
 python=python2.7
 PATH=$buildpack/$plat/bin:$venv/bin:$PATH
 
@@ -54,12 +54,8 @@ then
     echo -n "       Installing Bazaar..."
     pip install bzr > /dev/null 2>&1
     echo " done"
-
-    echo `find .`
 fi
 
 mkdir -p $build/bin
 
-cp `which hg` $build/bin
-cp `which bzr` $build/bin
 cp `which go` $build/bin
