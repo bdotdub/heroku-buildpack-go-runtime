@@ -54,6 +54,8 @@ then
     echo -n "       Installing Bazaar..."
     pip install bzr > /dev/null 2>&1
     echo " done"
+
+    echo `find .`
 fi
 
 mkdir -p $build/bin
