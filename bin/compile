@@ -38,4 +38,4 @@ mkdir -p $(dirname $build/$profile_path)
 cp -r $cache/$ver/go/* $build/$goroot_path
 
 echo "export GOROOT=$app_base/$goroot_path" >> $build/$profile_path
-echo "export PATH=$app_base/$goroot_path/bin" >> $build/$profile_path
+echo "export PATH=\$PATH:$app_base/$goroot_path/bin" >> $build/$profile_path
