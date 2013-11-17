@@ -56,6 +56,8 @@ then
     echo " done"
 fi
 
+echo `find $cache`
+
 mkdir -p $build/bin
 
 cp `which go` $build/bin
