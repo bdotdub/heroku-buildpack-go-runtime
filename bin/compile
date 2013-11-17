@@ -13,8 +13,10 @@ ver=go${GOVERSION:-1.1.2}
 file=${GOFILE:-$ver.$(uname|tr A-Z a-z)-amd64.tar.gz}
 url=${GOURL:-http://go.googlecode.com/files/$file}
 
-goroot=$build/.heroku/go
-profile_path=$build/.profile.d/go.sh
+app_base=/app
+
+goroot_path=.heroku/go
+profile_path=.profile.d/go.sh
 
 if test -d $cache/$ver/go
 then
@@ -33,6 +35,7 @@ fi
 mkdir -p $goroot
 mkdir -p $(dirname $profile_path)
 
-cp -r $cache/$ver/go/* $goroot
+cp -r $cache/$ver/go/* $build/$goroot_path
 
-echo "export GOROOT=$goroot" >> $profile_path
+echo "export GOROOT=$app_base/$goroot_path" >> $app_base/$profile_path
+echo "export PATH=$app_base/$goroot_path/bin" >> $app_base/$profile_path
