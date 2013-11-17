@@ -56,8 +56,6 @@ then
     echo " done"
 fi
 
-echo `find $cache`
-
 mkdir -p $build/bin
 
-cp `which go` $build/bin
+cp $cache/$ver/go/bin/go $build/bin
