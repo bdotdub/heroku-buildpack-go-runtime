@@ -13,8 +13,8 @@ ver=go${GOVERSION:-1.1.2}
 file=${GOFILE:-$ver.$(uname|tr A-Z a-z)-amd64.tar.gz}
 url=${GOURL:-http://go.googlecode.com/files/$file}
 
-goroot=/app/.heroku/go
-profile_path=/app/.profile.d/go.sh
+goroot=$build/.heroku/go
+profile_path=$build/.profile.d/go.sh
 
 if test -d $cache/$ver/go
 then
